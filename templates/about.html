@@ -1,0 +1,105 @@
+{% block title %}
+<title>About</title>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style>
+.bg-custom-1 {
+    background-color: rgba(242, 248, 250);
+}
+.bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+.bg-custom-3 {
+    background-color: rgba(255, 255, 255);
+}
+</style>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card bg-light text-center">
+    <img class="card-img img-rounded" src= {{ url_for('static',filename='download.jpeg') }} >
+    <div class="card-img-overlay">
+    </br>
+    </br>
+            <div class="card-title aligh-left text-black"><h1>Hi Millennium</h1></div>
+            </br>
+            <div class="card-subtitle aligh-left text-black"><h2>-We're here to help，Start your Finance Journey Today!</h2></div>
+            </br>
+        </br>
+        </br>
+         <p class="card-text text-secondary"><h5>
+                Early Bird is an app that provides third-party personalized investment recommendations, a subscription newsletter,  </br></br>
+             and feeds that give accessible explanations for an over-looked segment of investors who are interested in active investing. </br></br>
+                Our target clients are inexperienced investors that have short or mid-term investment horizons with AUM less than 50K and are  </br></br>
+             interested in managing their own portfolios. The only thing clients have to do is to sign up and complete a questionnaire regarding investment  </br></br>
+             goals and risk tolerance level Early Bird will provide stock recommendations using a proprietary algorithm and other personalized products. </br></br>
+            </h5></p>
+    </div>
+</div>
+<div class = "card bg-light text-center">
+    </br>
+    </br>
+    </br>
+    <div class="card-title text-center text-black"><h1>Why Choose Early Bird?</h1></div>
+    <div class = "row">
+        <div class = "col">
+            </br>
+            </br>
+            <p class="card-text text-secondary"><h4>
+                    <span class="iconify" data-icon="bx:bxs-right-arrow-circle" data-inline="false"></span>   Cost Efficient</br></br>
+
+                    <span class="iconify" data-icon="bx:bxs-right-arrow-circle" data-inline="false"></span>  High Customer Retention Rate</br></br>
+
+                    <span class="iconify" data-icon="bx:bxs-right-arrow-circle" data-inline="false"></span>   No Regulations</br></br>
+                </h4></p>
+            </br>
+            </br>
+        </div>
+        <div class = 'col'>
+               </br>
+                </br>
+            <canvas id="bar-chart" width="800" height="450"></canvas>
+            </br>
+
+            </br>
+        </div>
+    </div>
+    <div class="card-footer bg-custom-2 text-white text-left"><h5>Developed by Early Bird</h5></div>
+{% endblock %}
+
+{% block scripts %}
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+    <script>
+        new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["April 2020", "August 2020", "December 2020", "April 2021", "August 2021","December 2021","April 2022"],
+      datasets: [
+        {
+          label: "Early Bird Customer Growth",
+          backgroundColor: ["#F9F871", "#AFE580","#72CC90","#49AE98","#418F91","#4A707A",'#2f555e'],
+          data: [1050,1326,1675,2315,4191,7587,13738]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+          fontSize : 24,
+        display: true,
+        text: 'Early Bird Customer Growth Projection 24 month'
+      }
+    }
+});
+    </script>
+{% endblock %}

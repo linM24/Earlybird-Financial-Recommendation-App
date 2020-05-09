@@ -1,0 +1,137 @@
+{% block head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style>
+.bg-custom-1 {
+    background-color: rgba(242, 248, 250);
+}
+.bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+.bg-custom-3 {
+    background-color: rgba(255, 255, 255);
+}
+
+</style>
+{% endblock %}
+
+
+{% block title %}
+<title>Result</title>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card text-black text-center bg-light" >
+    <div class = 'row'>
+    </br>
+        <div class = 'col'>
+            </br>
+            </br>
+            <div class="card-title aligh-left text-black"><h1>Your risk score : {{score}} / 100</h1></div>
+            </br>
+            <p class="card-text align-left">
+                    <h4><span class="iconify" data-icon="el:hand-right" data-inline="false"></span>  Interested about next step</h4>
+                    </br>
+                    <h4><span class="iconify" data-icon="vaadin:pie-bar-chart" data-inline="false"></span>  View demo dashboard <a href="example" >See Example</a></h4>
+                    </br>
+            </p>
+            </br>
+        <a href="dashboard" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">Check out recommendations</a>
+        </div>
+        <div class = 'col'>
+            </br>
+             <div class="card-body">
+                <canvas id="myChart"></canvas>
+            </div>
+            </br>
+        </div>
+ </div>
+ <div class = "card bg-custom-1">
+    </br>
+    </br>
+    <div class="card-title text-center text-black"><h3>No Comission Fees & Subscribe for Only 5.99/month</h3></div>
+    <p class = 'card-text'>
+        Early Bird will provide stock recommendations using a proprietary algorithm and other personalized products. </br>
+    </p>
+    </br>
+    </br>
+</div>
+<div class = "card bg-custom-3">
+    <div class = "row">
+        <div class = "col">
+            </br>
+             <img src= {{ url_for('static',filename='pic4.jpg') }} class="w3-round" height="250" width="450" >
+            </br>
+        </div>
+        <div class = 'col'>
+               </br>
+                </br>
+                <div class="card-title text-left text-black"><h3>Introducing Key Features</h3></div>
+                </br>
+                <table style="width:100%">
+                      <tr>
+                          <th style="text-align:left"><h5 text-mute>Investing any amount</h5></th>
+                          <th style="text-align:left"><h5 text-mute>View your mock portfolio</h5></th>
+                          <th style="text-align:left"><h5 text-mute>See personlize sotck recommendation</h5></th>
+                       </tr>
+                      <tr>
+                        <td style="text-align:left">Choose your own investment amount</td>
+                        <td style="text-align:left">See your mock portfolio based on our algorithm</td>
+                        <td style="text-align:left">See your customize stock recommendation</td>
+                       </tr>
+                </table>
+            </br>
+            </br>
+             <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="name@email.com" aria-label="search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Get Early Access</button>
+            </form>
+            </br>
+        </div>
+    </div>
+    <div class="card-footer bg-custom-2 text-white text-left"><h5>Developed by Early Bird</h5></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d'),
+    gradient = ctx.createLinearGradient(0, 0, 0, 450);
+    gradient.addColorStop(0, 'rgba(200, 37, 56)');
+    gradient.addColorStop(0.5, 'rgba(69, 115, 30)');
+    gradient.addColorStop(1, 'rgba(46, 127, 24)');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'doughnut',
+        // The data for our dataset
+        data: {
+            labels: ["Your Risk Score","Full Score"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: [gradient, 'rgb(235, 237, 235)'],
+                borderColor: '#fff',
+                data: [{{score}}, 100-{{score}}]
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            circumference: 1 * Math.PI,
+            rotation: 1 * Math.PI,
+            cutoutPercentage: 80,
+            title: {
+            fontSize : 24,
+            display: true,
+            text: 'Risk Calculator'
+        }
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/img/favicons/favicon.ico">
+
+    <title>Dashboard Template</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index">Early Bird</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="logout">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="compass"></span>
+                  Portfolio <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="trending-up"></span>
+                  Forecast
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="database"></span>
+                  Personalize Recommendation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  Monthly Reports
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Year-end Summary
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Industry Analysis
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Company Report
+                </a>
+              </li>
+            </ul>
+
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Customer Services</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="slack"></span>
+                  Live Portfolio Analyst
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Schedule Review Meeting
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Portfolio Net Worth</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This year
+              </button>
+            </div>
+          </div>
+          <div>
+            <canvas class="my-4" id="lineChart" width="900" height="300"></canvas>
+          </div>
+      <!-- Grid column -->
+          <!-- Grid row -->
+        <div class="row">
+          <!-- Grid column -->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+              <div class="card">
+                <div class="card-body px-2">
+                  <div class="float-left white-text pl-4">
+                    <p><i class="far fa-bell pr-2 align-text-top mt-n1 icon icon-blue"></i>
+                      <span
+                        class="font-weight-light h3">Sector Index Return</span></p>
+                  </div>
+                  <canvas id="horizontalBar" width="450" height="300"></canvas>
+                </div>
+              </div>
+
+            </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+              <div class="card">
+                <div class="card-body px-2">
+                  <div class="float-left white-text pl-4">
+                    <p><span
+                        class="font-weight-light h3">Income </span></p>
+                  </div>
+                  <canvas id="doughnutChart1" width="450" height="300"></canvas>
+                </div>
+              </div>
+
+          </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+            <div class="col-lg-4 col-md-6 mb-4">
+
+              <div class="card">
+                <div class="card-body px-2">
+                  <div class="float-left white-text pl-4">
+                    <p><span
+                        class="font-weight-light h3">Spendings</span></p>
+                  </div>
+                  <canvas id="doughnutChart2" width="450" height="300"></canvas>
+                </div>
+              </div>
+
+          </div>
+        <!-- Grid column -->
+      </div>
+
+          <h2>Technology -Momentum</h2>
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Company/Symbol</th>
+                  <th>Price</th>
+                  <th>Market Cap</th>
+                  <th>Beta</th>
+                  <th>P/E Ratio(TTM)</th>
+                  <th>EPS(TTM)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Advanced Micro Devices Inc. (AMD)</td>
+                  <td>48.79</td>
+                  <td>57.126B</td>
+                  <td>2.39</td>
+                  <td>162.63</td>
+                  <td>0.30</td>
+                </tr>
+                <tr>
+                  <td>Apple Inc. (AAPL)</td>
+                  <td>259.43</td>
+                  <td>1.164T</td>
+                  <td>1.17</td>
+                  <td>21.13</td>
+                  <td>12.60</td>
+                </tr>
+                <tr>
+                  <td>NortonLifeLock Inc. (NLOK)</td>
+                  <td>19.58</td>
+                  <td>11.756B</td>
+                  <td>1.17</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                </tr>
+                <tr>
+                  <td>ServiceNow Inc. (NOW)</td>
+                  <td>274.05</td>
+                  <td>52.015B</td>
+                  <td>1.3</td>
+                  <td>86.18</td>
+                  <td>3.18</td>
+                </tr>
+                <tr>
+                  <td>SPDR S&P 500 ETF Trust (SPY)</td>
+                  <td>274.00</td>
+                  <td>236.95B</td>
+                  <td>1.00</td>
+                  <td>N/A</td>
+                  <td>N/A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctxL = document.getElementById("lineChart").getContext('2d');
+      var myLineChart = new Chart(ctxL, {
+      type: 'line',
+      data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [{
+      label: "Actual Portfolio",
+      data: [20345, 22569, 21892, 20490, 21610, 22893, 22111],
+      backgroundColor: [
+      'rgba(0, 107, 4, 0.15)',
+      ],
+      borderColor: [
+      'rgba(50, 70, 37, 0.82)',
+      ],
+      borderWidth: 2
+      },
+      {
+      label: "Virtual Portfolio",
+      data: [20445, 22230, 22092, 20890, 20760, 22893, 22111],
+      backgroundColor: [
+      'rgba(0, 77, 179, 0.2)',
+      ],
+      borderColor: [
+      'rgba(0, 10, 130, .7)',
+      ],
+      borderWidth: 2
+      }
+      ]
+      },
+      options: {
+      responsive: true
+      }
+      });
+    </script>
+    <script>
+      var ctxD = document.getElementById("doughnutChart2").getContext('2d');
+      var doughnutChart2 = new Chart(ctxD, {
+      type: 'doughnut',
+      data: {
+      labels: ["Grocery", "Travel", "Gas"],
+      datasets: [{
+      data: [300, 50, 80],
+      backgroundColor: ["#701403", "#b8290f", "#ed654c"],
+      hoverBackgroundColor: ["#701403", "#b8290f", "#ed654c"]
+      }]
+      },
+      options: {
+      responsive: true
+      }
+      });
+    </script>
+    <script>
+      var ctxD = document.getElementById("doughnutChart1").getContext('2d');
+      var doughnutChart1 = new Chart(ctxD, {
+      type: 'doughnut',
+      data: {
+      labels: ["Salary", "Interest and Dividends", "Businesses"],
+      datasets: [{
+      data: [300, 70, 130],
+      backgroundColor: ["#035b80","#077fb3", "#4cabd4"],
+      hoverBackgroundColor: ["#035b80","#077fb3", "#4cabd4"]
+      }]
+      },
+      options: {
+      responsive: true
+      }
+      });
+    </script>
+    <script>
+      var horizontalBar = new Chart(document.getElementById("horizontalBar"), {
+          "type": "horizontalBar",
+          "data": {
+          "labels": ["Utilities", "Consumer Staples", "Energy", "Financial", "Health Care", "Industrials", "Information Technology"],
+          "datasets": [{
+          "label": "Recommended Sector",
+          "data": [8.52, 10.08, 2.51, 2.36, 11.08, 8.46, 13.79],
+          "fill": false,
+          "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)",
+          "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)",
+          "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"
+          ],
+          "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)",
+          "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"
+          ],
+          "borderWidth": 1
+          }]
+          },
+          "options": {
+          "scales": {
+          "xAxes": [{
+          "ticks": {
+          "beginAtZero": true
+          }
+          }]
+          }
+          }
+          });
+        </script>
+  </body>
+</html>

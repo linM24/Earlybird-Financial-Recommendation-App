@@ -1,0 +1,58 @@
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Early Bird</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="/index" class="w3-bar-item w3-button">Home Page</a>
+			<a href="/register" class="w3-bar-item w3-button">Sign Up</a>
+			<a href="/login" class="w3-bar-item w3-button">Log In</a>
+    </div>
+  </div>
+</div>
+
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+
+<div class="container" style="width:400px">
+ <h3>Login</h3>
+  <hr>
+  <form action="" method="post" class="form" role="form">
+   <div class="row">
+		 <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+ 						<span class="focus-input100-1"></span>
+ 						<span class="focus-input100-2"></span>
+    </div>
+       <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+				 		<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+    </div>
+    </div>
+		<h3>Username or Email already exist</h3>
+    <a class="nav-link" href="register">Sign up</a>
+  </form>
+        <!-- {% if error %} -->
+<!--        <br/><p style="color:red"> {{error}} </p>-->
+        <!-- <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          {{error}}
+        </div>
+        {% endif %} -->
+  <hr>
+</div>
+{% endblock %}

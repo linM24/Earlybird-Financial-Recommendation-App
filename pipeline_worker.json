@@ -1,0 +1,69 @@
+{
+    "pipeline": {
+        "name": "EarlyBird_Worker_Pipeline",
+        "version": 1,
+        "roleArn": "arn:aws:iam::932431442585:role/service-role/AWSCodePipelineServiceRole-us-west-2-msds603_Week1_test_rd",
+        "artifactStore": {
+            "type": "S3",
+            "location": "early-bird-1"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name" : "GitHubSource",
+                        "inputArtifacts": [],
+                        "actionTypeId": {
+                            "version": "1",
+                            "owner": "ThirdParty",
+                            "category": "Source",
+                            "provider": "GitHub"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "runOrder": 1,
+                        "configuration": {
+                            "Owner": "MSDS698",
+                            "Repo": "2020-product-analytics-group-project-earlybird",
+                            "PollForSourceChanges": "true",
+                            "Branch": "master",
+                            "OAuthToken": "7588e670d7f27ff4a04ae50d7d4cff171726b871"
+                        }
+                    }
+                ]
+            },
+
+            {
+              "name": "Deploy",
+              "actions": [
+                {
+                  "inputArtifacts": [
+                    {
+                      "name": "SourceArtifact"
+                    }
+                  ],
+                  "name": "CodeDeploy",
+                  "actionTypeId": {
+                    "category": "Deploy",
+                    "owner": "AWS",
+                    "version": "1",
+                    "provider": "ElasticBeanstalk"
+                  },
+                  "outputArtifacts": [
+
+                        ],
+                  "configuration": {
+                    "ApplicationName": "EarlyBirdTest1",
+                    "EnvironmentName": "EarlyBirdTest1-Worker"
+                  },
+                  "runOrder": 2
+                }
+              ]
+            }
+        ]
+    }
+}

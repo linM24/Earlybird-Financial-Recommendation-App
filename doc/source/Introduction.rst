@@ -1,0 +1,6 @@
+Introduction
+============
+
+Our group is building an automated financial planning system to provide third-party unbiased investment recommendations and accessible explanations for inexperienced and younger investors who are interested in active investing.
+
+The rise of Robinhood fundamentally changes the financial services industry. By 2014, the cheapest online brokers were still charging $5 to $8 a trade. Robinhood pushed trading costs to its theoretical limit: Zero. With a sleek, easy to navigate the mobile app, it’s not surprising that Robinhood is popular among millennials. Accessing the financial market with zero cost will attract more and more beginning and younger investors. As a result, we decided to develop a website where people can initiate their investment plans. Investment plans can either be a long-term or a short-term plan. Users will create their own profiles on our websites by answering questions on investment goal, income, asset, risk assessment and will engage with the app at various times but will receive daily updates on changes to the recommendation.

@@ -1,0 +1,111 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block head %}
+{{super()}}
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+<style>
+.bg-custom-1 {
+    background-color: rgba(242, 248, 250);
+}
+.bg-custom-2 {
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+.bg-custom-3 {
+    background-color: rgba(255, 255, 255);
+}
+
+</style>
+{% endblock %}
+
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card text-black text-center bg-light" >
+    <div class = 'row'>
+    </br>
+        <div class = 'col'>
+            </br>
+            </br>
+            <div class="card-title aligh-left text-black"><h1>It's Time To Invest</h1></div>
+            </br>
+            <div class="card-title aligh-left text-black"><h1>Early Bird</h1></div>
+            </br>
+            <p class="card-text align-left">
+
+                    <h4><span class="iconify" data-icon="vaadin:pie-bar-chart" data-inline="false"></span>  Automated Financial Planning System</h4>
+                    </br>
+                    <h4><span class="iconify" data-icon="cil:chart-line" data-inline="false"></span>  Personalized Investment Recommendations</h4>
+                    </br>
+                    <h4><span class="iconify" data-icon="emojione-monotone:newspaper" data-inline="false"></span>  Subscription Newsletter and Feeds</h4>
+
+            </p>
+            </br>
+            <a href="register" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">Sign Up</a>
+            </br>
+            </br>
+        </div>
+        <div class = 'col'>
+            </br>
+             <img src= {{ url_for('static',filename='pic3.png') }} class="w3-round" height="400" >
+            </br>
+        </div>
+ </div>
+<div class = "card bg-custom-1">
+    </br>
+    </br>
+    <div class="card-title text-center text-black"><h3>No Comission Fees & Subscribe for Only 5.99/month</h3></div>
+    <p class = 'card-text'>
+        Early Bird will provide stock recommendations using a proprietary algorithm and other personalized products. </br>
+        </br>
+        <a href = "question" class = "btn btn-outline-info">Try the Questionnaire</a>
+    </p>
+    </br>
+    </br>
+</div>
+<div class = "card bg-custom-3">
+    <div class = "row">
+        <div class = "col">
+            </br>
+             <img src= {{ url_for('static',filename='pic4.jpg') }} class="w3-round" height="250" width="450" >
+            </br>
+        </div>
+        <div class = 'col'>
+               </br>
+                </br>
+                <div class="card-title text-left text-black"><h3>Introducing Key Features</h3></div>
+                </br>
+                <table style="width:100%">
+                      <tr>
+                          <th style="text-align:left"><h5 text-mute>Investing any amount</h5></th>
+                          <th style="text-align:left"><h5 text-mute>View your mock portfolio</h5></th>
+                          <th style="text-align:left"><h5 text-mute>See personlize sotck recommendation</h5></th>
+                       </tr>
+                      <tr>
+                        <td style="text-align:left">Choose your own investment amount</td>
+                        <td style="text-align:left">See your mock portfolio based on our algorithm</td>
+                        <td style="text-align:left">See your customize stock recommendation</td>
+                       </tr>
+                </table>
+            </br>
+            </br>
+             <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="name@email.com" aria-label="search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Get Early Access</button>
+            </form>
+            </br>
+        </div>
+    </div>
+    <div class="card-footer bg-custom-2 text-white text-left"><h5>Developed by Early Bird</h5></div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+{% endblock %}
